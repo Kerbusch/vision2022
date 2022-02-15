@@ -6,9 +6,7 @@ from scipy import ndimage
 
 image = data.camera()
 
-mask1 = [[1 / 9, 1 / 9, 1 / 9], [1 / 9, 1 / 9, 1 / 9], [1 / 9, 1 / 9, 1 / 9]]
-newimage = scipy.ndimage.convolve(image, mask1)
-newimage = scipy.ndimage.convolve(newimage, mask1)
+newimage = filters.gaussian(image)
 
 edge1 = feature.canny(newimage, sigma=1.5)
 edge2 = feature.canny(newimage, sigma=2)
