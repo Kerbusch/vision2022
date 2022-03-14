@@ -34,7 +34,7 @@ X_train, y_train = load_train()
 image_to_filter = X_train[2]
 plt.imshow(image_to_filter)
 plt.show()
-print(image_to_filter.shape)
+image_to_filter = np.pad(image_to_filter, [(0, 0), (0, 1)], "edge") # pad onder, omdat de afbeelding 28x31 is en niet 28x32
 
 # the filter to be used for convolution
 u_filter = [[0, -1, 0],

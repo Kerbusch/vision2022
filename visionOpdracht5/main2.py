@@ -34,6 +34,8 @@ def max_pooling(image, n):
         for y in range(vertical):
             outputArray[x][y] = np.maximum(image[x*2][y*2], np.maximum(image[x*2+1][y*2], np.maximum(image[x*2][y*2+1], image[x*2+1][y*2+1])))
 
+    return outputArray
+
     # stap 3
     # selecteer de regio waar de filter in moet zoeken naar het maximale element
     # gebruik slices en een np functie
@@ -44,7 +46,7 @@ def max_pooling(image, n):
 #---------------------------------
 
 image_to_pool = X_train[2]  # afbeelding van de nummer 7
-print(image_to_pool.shape)
+image_to_pool = np.pad(image_to_pool, [(0, 0), (0, 1)], "edge") # pad onder, omdat de afbeelding 28x31 is en niet 28x32
 plt.imshow(image_to_pool)
 plt.show()
 
