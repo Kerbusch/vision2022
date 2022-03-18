@@ -20,3 +20,15 @@ print(x)
 #y_label = y[0]
 #y = y[1:]
 #print(np.reshape(y, (28, 28)).shape)
+
+
+train_data_out = np.array([[],[],[]])
+# make the data 2d
+for i in range(train_data.shape[0]):
+    x = np.reshape(train_data[i], (28, 28))
+    # print(x)
+    print(x.shape)
+    y = np.dstack((train_data_out, x))
+    print(y.shape)
+    exit(1)
+    train_data_out = np.append(train_data_out, x)
